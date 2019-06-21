@@ -5,7 +5,10 @@
     (keyUp.enter)="addTodo()">
   <div style="text-align:center">
 
-    <div class="todo-item" *ngFor="let todo of todosFiltered()" @fade>
+    <todo-item *ngFor="let todo of todosFiltered()" [todo]="todo" (checkedItem)="doneEdit($event)">
+    </todo-item>
+
+    <!--<div class="todo-item" *ngFor="let todo of todosFiltered()" @fade>
       <div class="todo-item-left">
         <input type="checkbox" [(ngModel)]="todo.completed">
         <div *ngIf="!todo.editing; else editingTodo" class="todo-item-label" [ngClass]="{ 'completed' : todo.completed }" (dblclick)="editTodo(todo)">{{ todo.title}}
@@ -17,7 +20,7 @@
       <div class="remove-item" (click)="deleteTodo(todo.id)">
         &times;
       </div>
-    </div>
+    </div>-->
 
     <div class="extra-container">
       <div><label><input type="checkbox" (change)="checkAllTodos()"> Check All</label></div>
