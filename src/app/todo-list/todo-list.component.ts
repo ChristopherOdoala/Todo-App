@@ -27,13 +27,15 @@ export class TodoListComponent implements OnInit {
   idForTodo: number;
   beforeEditCache: string;
   filter: string;
+  anyRemainingModel : boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.anyRemainingModel =true;
     this.filter = 'all'
     this.idForTodo = 4;
-    this.todoTitle = "";
+    this.todoTitle = '';
     this.beforeEditCache = "";
     this.todos = [
       {
